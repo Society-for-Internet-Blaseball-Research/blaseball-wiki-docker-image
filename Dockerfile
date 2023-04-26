@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ploticus isn't available in Debian stable
 RUN curl -L https://downloads.sourceforge.net/project/ploticus/ploticus/2.42/ploticus242_linuxbin64.tar.gz | tar -C /usr/local/bin -xzf - ploticus242/bin/pl --strip-components=2
 
+RUN a2enmod headers
 RUN a2enmod remoteip
 COPY remoteip.conf /etc/apache2/conf-available
 RUN a2enconf remoteip
